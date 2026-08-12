@@ -25,6 +25,7 @@ export default function Header() {
 
       if (pathname === "/about") setActive("about");
       else if (pathname === "/services") setActive("services");
+      else if (pathname === "/portfolio") setActive("portfolio");
       else if (pathname === "/contact") setActive("contact");
       else setActive("home");
     };
