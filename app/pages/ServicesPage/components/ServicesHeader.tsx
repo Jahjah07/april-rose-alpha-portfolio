@@ -1,18 +1,22 @@
-import Header from "../../../components/Header";
-
 export default function ServicesHeader() {
   return (
-    <section id="services-header" className="py-16 px-6 lg:px-20 bg-background">
-      <Header />
-      <div className="max-w-4xl mx-auto text-center mt-12">
-        <div className="bg-secondary p-1 rounded-md mb-4 inline-block">
+    <section
+      id="services-header"
+      className="bg-background px-6 py-16 lg:px-20"
+    >
+      <div className="mx-auto mt-12 max-w-4xl text-center">
+        <div className="mb-4 inline-block rounded-md bg-secondary p-1">
           <p className="text-xl text-playfair">My Services</p>
         </div>
-        <h1 className="text-5xl font-playfair text-dark mb-6">What I Offer</h1>
-        <p className="text-lg text-dark/80 font-poppins max-w-2xl mx-auto">
-          I provide a range of services to help you manage your business more effectively. 
-          From administrative support to social media management, I can help you save time 
-          and focus on what matters most.
+
+        <h1 className="mb-6 text-5xl font-playfair text-dark">
+          How I Can Support Your Business
+        </h1>
+
+        <p className="mx-auto max-w-2xl font-poppins text-lg leading-8 text-dark/80">
+          From keeping your day-to-day operations organised to managing your
+          online presence and supporting your projects, I provide reliable
+          virtual assistance tailored to the needs of your business.
         </p>
       </div>
     </section>
