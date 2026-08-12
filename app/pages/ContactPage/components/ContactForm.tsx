@@ -1,7 +1,67 @@
+"use client";
+
+import { FormEvent, useState } from "react";
 import { Mail, MessageCircle, Send } from "lucide-react";
 import { Reveal, MotionButton, Stagger, StaggerItem } from "@/app/components/Motion";
 
 export default function ContactForm() {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [status, setStatus] = useState<
+    "idle" | "success" | "error"
+  >("idle");
+
+  const [errorMessage, setErrorMessage] = useState("");
+
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+
+    setIsSubmitting(true);
+    setStatus("idle");
+    setErrorMessage("");
+
+    const form = event.currentTarget;
+    const formData = new FormData(form);
+
+    const data = {
+      name: formData.get("name"),
+      email: formData.get("email"),
+      service: formData.get("service"),
+      message: formData.get("message"),
+    };
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+
+      const result = await response.json();
+
+      if (!response.ok) {
+        throw new Error(
+          result.error || "Failed to send your message."
+        );
+      }
+
+      setStatus("success");
+      form.reset();
+    } catch (error) {
+      console.error(error);
+
+      setStatus("error");
+
+      setErrorMessage(
+        error instanceof Error
+          ? error.message
+          : "Something went wrong. Please try again."
+      );
+    } finally {
+      setIsSubmitting(false);
+    }
+  }
   return (
     <section
       id="contact-form"
@@ -108,7 +168,10 @@ export default function ContactForm() {
             delay={0.1}
             className="rounded-[28px] border border-slate-200 bg-white p-7 shadow-lg sm:p-10"
           >
-            <form className="space-y-6">
+            <form
+              onSubmit={handleSubmit}
+              className="space-y-6"
+            >
               {/* Name + Email */}
               <div className="grid gap-6 sm:grid-cols-2">
                 <div>
@@ -209,18 +272,64 @@ export default function ContactForm() {
                 />
               </div>
 
+              {status === "success" && (
+                <div
+                  role="status"
+                  className="rounded-xl border border-green-200 bg-green-50 px-4 py-3 font-poppins text-sm text-green-700"
+                >
+                  Thanks for reaching out! Your message has been sent successfully.
+                  I&apos;ll get back to you as soon as possible.
+                </div>
+              )}
+
+              {status === "error" && (
+                <div
+                  role="alert"
+                  className="rounded-xl border border-red-200 bg-red-50 px-4 py-3 font-poppins text-sm text-red-700"
+                >
+                  {errorMessage}
+                </div>
+              )}
+
               {/* Submit */}
               <MotionButton
                 type="submit"
-                whileHover={{ y: -2, scale: 1.01 }}
-                whileTap={{ scale: 0.98 }}
-                className="group inline-flex w-full items-center justify-center gap-2 rounded-full bg-primary px-6 py-3.5 font-poppins text-sm font-semibold text-white shadow-md shadow-primary/20 transition hover:bg-primary/90"
+                disabled={isSubmitting}
+                whileHover={
+                  !isSubmitting
+                    ? { y: -2, scale: 1.01 }
+                    : undefined
+                }
+                whileTap={
+                  !isSubmitting
+                    ? { scale: 0.98 }
+                    : undefined
+                }
+                className="
+                  group inline-flex w-full items-center justify-center
+                  gap-2 rounded-full bg-primary px-6 py-3.5
+                  font-poppins text-sm font-semibold text-white
+                  shadow-md shadow-primary/20
+                  transition hover:bg-primary/90
+                  disabled:cursor-not-allowed
+                  disabled:opacity-60
+                "
               >
-                <span>Send Message</span>
+                <span>
+                  {isSubmitting ? "Sending..." : "Send Message"}
+                </span>
 
                 <Send
                   aria-hidden="true"
-                  className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1"
+                  className={`
+                    h-4 w-4
+                    transition-transform duration-300
+                    ${
+                      isSubmitting
+                        ? "animate-pulse"
+                        : "group-hover:translate-x-1"
+                    }
+                  `}
                 />
               </MotionButton>
             </form>
