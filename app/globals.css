@@ -1,15 +1,33 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
+  --background: #fcfaffe0;
   --foreground: #171717;
+  --primary: #9F86C0;
+  --secondary: #C4B5FD;
+  --accent: #BAE6FD;
+  --light-bg: #FCFAFF;
+  --dark: #334155;
+
+  --text-primary: #334155;
+  --text-secondary: #64748B;
+  --border: #E9E5F4;
+  --card-bg: #FFFFFF;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-secondary: var(--secondary);
+  --color-accent: var(--accent);
+  --color-light-bg: var(--light-bg);
+  --color-dark: var(--dark);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --font-allura: var(--font-allura);
+  --font-playfair: var(--font-playfair);
+  --font-poppins: var(--font-poppins);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -22,5 +40,31 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-poppins), Arial, Helvetica, sans-serif;
+}
+
+.font-allura {
+  font-family: var(--font-allura), cursive;
+}
+
+.font-playfair {
+  font-family: var(--font-playfair), serif;
+}
+
+.font-poppins {
+  font-family: var(--font-poppins), sans-serif;
+}
+
+@keyframes cursor-blink {
+  0%, 45% {
+    opacity: 1;
+  }
+
+  46%, 100% {
+    opacity: 0;
+  }
+}
+
+.animate-cursor-blink {
+  animation: cursor-blink 1s steps(1, end) infinite;
 }
