@@ -3,7 +3,9 @@ import AboutMe from "./components/AboutMe";
 import Services from "./components/Services";
 import WhyWorkWithMe from "./components/WhyWorkWithMe";
 import Footer from "@/app/components/Footer";
-import Contact from "./components/Contact";
+import WorkTogetherCTA from "./components/WorkTogetherCTA";
+import Portfolio from "./components/Portfolio";
+import ToolsSkills from "./components/ToolsSkills";
 
 export default function HomePage() {
   return (
@@ -12,7 +14,9 @@ export default function HomePage() {
       <AboutMe />
       <Services />
       <WhyWorkWithMe />
-      <Contact />
+      <ToolsSkills />
+      <Portfolio />
+      <WorkTogetherCTA />
       <Footer />
     </main>
   );

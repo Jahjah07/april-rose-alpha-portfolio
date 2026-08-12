@@ -1,13 +1,19 @@
-import { Reveal, Stagger, StaggerItem, MotionLink } from "@/app/components/Motion";
 import {
-  CalendarCheck,
   ClipboardList,
-  Headphones,
+  FolderKanban,
+  Megaphone,
+  Palette,
   SearchCheck,
-  Settings,
-  Workflow,
+  Users,
   type LucideIcon,
 } from "lucide-react";
+
+import {
+  Reveal,
+  Stagger,
+  StaggerItem,
+  MotionLink,
+} from "@/app/components/Motion";
 
 type Service = {
   icon: LucideIcon;
@@ -20,80 +26,117 @@ export default function Services() {
     {
       icon: ClipboardList,
       title: "Administrative Support",
-      description: "Inbox and email management, data entry, document preparation, and file organization."
+      description:
+        "Email and calendar management, documentation, data entry, file organisation, and day-to-day administrative tasks.",
     },
     {
-      icon: CalendarCheck,
-      title: "Calendar & Email Management",
-      description: "Scheduling appointments, managing calendars, email organization, and reminders."
+      icon: FolderKanban,
+      title: "Project Coordination",
+      description:
+        "Task tracking, project organisation, documentation, deadlines, and keeping important details on track.",
     },
     {
-      icon: Headphones,
-      title: "Customer Support",
-      description: "Responding to inquiries, handling messages, and providing excellent client service."
+      icon: Megaphone,
+      title: "Social Media & Marketing",
+      description:
+        "Content planning, social media support, marketing materials, and maintaining a consistent online presence.",
+    },
+    {
+      icon: Palette,
+      title: "Web & Graphic Design",
+      description:
+        "Website layouts, visual materials, content updates, and creative support using modern design tools.",
     },
     {
       icon: SearchCheck,
-      title: "Data Entry & Research",
-      description: "Accurate data entry, online research, and information gathering you can rely on."
+      title: "Lead Generation & Research",
+      description:
+        "Lead generation, prospect research, market research, data gathering, and organised business information.",
     },
     {
-      icon: Settings,
-      title: "Website & Tech Assistance",
-      description: "Website updates, content uploads, basic troubleshooting, and tech support."
+      icon: Users,
+      title: "Business & Client Support",
+      description:
+        "Client communication, coordination, business records, and operational support to keep things running smoothly.",
     },
-    {
-      icon: Workflow,
-      title: "Project Management",
-      description: "Task coordination, project tracking, and ensuring deadlines are met."
-    }
   ];
 
   return (
-    <section id="services" className="relative overflow-hidden py-20 px-6 lg:px-20 bg-background">
-      <div className="pointer-events-none absolute -left-16 top-10 h-72 w-72 rounded-full bg-secondary/20 blur-3xl opacity-80" />
-      <div className="pointer-events-none absolute right-0 top-1/4 h-64 w-64 rounded-full bg-primary/20 blur-3xl opacity-90" />
-      <div className="pointer-events-none absolute right-24 bottom-10 h-32 w-32 rounded-full bg-primary/10 blur-2xl opacity-80" />
-      <div className="mx-auto max-w-7xl">
-        <Reveal className="text-center relative z-10">
-          <p className="text-sm uppercase tracking-[0.32em] text-secondary mb-4">How I can help</p>
-          <h2 className="text-4xl sm:text-5xl font-playfair text-dark mb-4">Services</h2>
-          <p className="mx-auto max-w-2xl text-base sm:text-lg leading-8 text-dark/70 font-poppins">
-            I offer a range of virtual assistance services to help you save time, stay organized, and grow your business with ease.
+    <section
+      id="services"
+      className="relative overflow-hidden bg-background px-6 py-20 lg:px-20"
+    >
+      {/* Decorative background */}
+      <div className="pointer-events-none absolute -left-16 top-10 h-72 w-72 rounded-full bg-secondary/20 blur-3xl" />
+
+      <div className="pointer-events-none absolute right-0 top-1/4 h-64 w-64 rounded-full bg-primary/20 blur-3xl" />
+
+      <div className="pointer-events-none absolute bottom-10 right-24 h-32 w-32 rounded-full bg-accent/30 blur-2xl" />
+
+      <div className="relative z-10 mx-auto max-w-7xl">
+        {/* Heading */}
+        <Reveal className="text-center">
+          <div className="mb-4 inline-block rounded-md bg-secondary p-1">
+            <p className="text-xl text-playfair">
+              How I Can Help
+            </p>
+          </div>
+
+          <h2 className="mb-4 text-4xl font-playfair text-dark sm:text-5xl">
+            Services
+          </h2>
+
+          <p className="mx-auto max-w-2xl font-poppins text-base leading-8 text-dark/70 sm:text-lg">
+            From keeping your business organised to supporting your online
+            presence, I can help take important tasks off your plate so you
+            can focus on what matters most.
           </p>
         </Reveal>
 
+        {/* Services */}
         <Stagger className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {services.map((service, index) => {
+          {services.map((service) => {
             const Icon = service.icon;
 
             return (
               <StaggerItem
-                key={index}
-                className="group rounded-[32px] bg-white/90 p-8 shadow-xl shadow-slate-200/70 transition hover:-translate-y-1 hover:shadow-2xl"
+                key={service.title}
+                className="group rounded-[28px] border border-slate-200/70 bg-white/90 p-7 shadow-lg shadow-slate-200/50 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl"
               >
-                <div className="mb-6 inline-flex h-16 w-16 items-center justify-center rounded-full border border-secondary/20 bg-secondary/10 text-primary shadow-sm transition group-hover:border-secondary/30 group-hover:bg-secondary/15">
-                  <Icon aria-hidden="true" className="h-7 w-7" strokeWidth={1.8} />
+                <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-full border border-secondary/20 bg-secondary/10 text-primary transition-all duration-300 group-hover:bg-secondary/20">
+                  <Icon
+                    aria-hidden="true"
+                    className="h-6 w-6"
+                    strokeWidth={1.7}
+                  />
                 </div>
-                <h3 className="text-xl font-semibold text-dark mb-3">{service.title}</h3>
-                <p className="text-sm leading-7 text-dark/75 font-poppins">{service.description}</p>
+
+                <h3 className="mb-3 font-playfair text-2xl text-dark">
+                  {service.title}
+                </h3>
+
+                <p className="font-poppins text-sm leading-7 text-dark/70">
+                  {service.description}
+                </p>
+
+                <div className="mt-6 h-0.5 w-8 bg-primary/60 transition-all duration-300 group-hover:w-14" />
               </StaggerItem>
             );
           })}
         </Stagger>
 
+        {/* CTA */}
         <Reveal delay={0.08} className="mt-12 flex justify-center">
           <MotionLink
             href="/services"
             whileHover={{ y: -2, scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
-            className="inline-flex items-center justify-center rounded-full bg-secondary px-8 py-3 text-sm font-semibold text-white shadow-md shadow-secondary/30 transition hover:bg-secondary/90"
+            className="inline-flex items-center justify-center rounded-full bg-primary px-8 py-3 font-poppins text-sm font-semibold text-white shadow-md shadow-primary/20 transition hover:bg-primary/90"
           >
-            View All Services
+            Explore My Services
           </MotionLink>
         </Reveal>
       </div>
     </section>
   );
 }
-          
