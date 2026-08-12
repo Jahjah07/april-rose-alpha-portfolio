@@ -3,66 +3,125 @@ import { Reveal, Stagger, StaggerRevealItem } from "@/app/components/Motion";
 
 export default function AboutMeFull() {
   return (
-    <section id="about-full" className="py-20 px-6 lg:px-20 bg-background">
-      <div className="max-w-4xl mx-auto">
+    <section
+      id="about-full"
+      className="bg-background px-6 py-20 lg:px-20"
+    >
+      <div className="mx-auto max-w-4xl">
         <Reveal>
-          <div className="bg-secondary p-1 rounded-md mb-4 inline-block">
+          <div className="mb-4 inline-block rounded-md bg-secondary p-1">
             <p className="text-xl text-playfair">My Journey</p>
           </div>
 
-          <h1 className="text-5xl font-playfair text-dark mb-8">About Me</h1>
+          <h1 className="mb-8 text-5xl font-playfair text-dark">
+            About Me
+          </h1>
         </Reveal>
 
-        <Stagger className="space-y-6 text-lg text-dark/80 font-poppins leading-8">
+        <Stagger className="space-y-6 font-poppins text-lg leading-8 text-dark/80">
           <StaggerRevealItem>
             <p>
-              Hello! I&apos;m April Rose Alpha, a dedicated Virtual Assistant passionate about helping
-              entrepreneurs and business owners reclaim their time and focus on what truly matters.
+              Hello! I&apos;m April Rose Alpha, a Marketing & Web Design
+              Virtual Assistant, Social Media Manager, and Assistant Project
+              Manager. I enjoy helping businesses stay organised, build their
+              online presence, and keep their day-to-day operations running
+              smoothly.
             </p>
           </StaggerRevealItem>
 
           <StaggerRevealItem>
             <p>
-              With years of experience in administrative support, organization, and customer relations,
-              I understand the challenges that busy professionals face. Whether it&apos;s managing emails,
-              scheduling, social media, or customer support, I&apos;m here to be your trusted partner.
+              My experience includes supporting Australian business operations
+              through administrative assistance, project coordination, social
+              media management, content creation, lead generation, and business
+              research. I&apos;ve also worked with website design and UI
+              layouts, using Figma to help turn ideas into clear and
+              user-friendly digital experiences.
             </p>
           </StaggerRevealItem>
 
           <StaggerRevealItem>
             <p>
-              My approach is simple: I take on your administrative burden so you can focus on growing
-              your business. I&apos;m detail-oriented, proactive, and committed to delivering excellence in
-              everything I do.
+              I also have a strong creative side. I create marketing materials,
+              graphics, and visual content using Canva, Adobe Photoshop, and
+              Adobe Illustrator, while managing content across platforms such
+              as LinkedIn, Facebook, Instagram, and Google Business Profile.
             </p>
           </StaggerRevealItem>
 
           <StaggerRevealItem>
             <p>
-              When I&apos;m not assisting clients, you can find me exploring new productivity tools,
-              learning industry trends, and always looking for ways to improve my services.
+              Whether it&apos;s organising business documents, coordinating
+              schedules, managing content, preparing quotations and invoices,
+              maintaining CRM records, or supporting business growth through
+              lead generation, I approach every task with organisation,
+              attention to detail, adaptability, and initiative.
             </p>
           </StaggerRevealItem>
         </Stagger>
 
-        <Reveal delay={0.12} className="mt-12 p-6 bg-white rounded-lg border border-slate-200">
-          <h3 className="text-2xl font-playfair text-dark mb-4">What Drives Me</h3>
+        <Reveal
+          delay={0.12}
+          className="mt-12 rounded-lg border border-slate-200 bg-white p-6"
+        >
+          <h3 className="mb-4 text-2xl font-playfair text-dark">
+            What I Bring
+          </h3>
+
           <ul className="space-y-3 text-dark/70">
             <li className="flex items-start gap-3">
-              <Check aria-hidden="true" className="mt-1 h-5 w-5 shrink-0 text-primary" strokeWidth={1.8} />
-              <span>Helping entrepreneurs achieve their business dreams</span>
+              <Check
+                aria-hidden="true"
+                className="mt-1 h-5 w-5 shrink-0 text-primary"
+                strokeWidth={1.8}
+              />
+              <span>
+                Marketing, social media, and content support
+              </span>
             </li>
+
             <li className="flex items-start gap-3">
-              <Check aria-hidden="true" className="mt-1 h-5 w-5 shrink-0 text-primary" strokeWidth={1.8} />
-              <span>Creating efficient systems and processes</span>
+              <Check
+                aria-hidden="true"
+                className="mt-1 h-5 w-5 shrink-0 text-primary"
+                strokeWidth={1.8}
+              />
+              <span>
+                Organised project and administrative support
+              </span>
             </li>
+
             <li className="flex items-start gap-3">
-              <Check aria-hidden="true" className="mt-1 h-5 w-5 shrink-0 text-primary" strokeWidth={1.8} />
-              <span>Building long-term partnerships with clients</span>
+              <Check
+                aria-hidden="true"
+                className="mt-1 h-5 w-5 shrink-0 text-primary"
+                strokeWidth={1.8}
+              />
+              <span>
+                Website, UI, graphic design, and branding support
+              </span>
             </li>
+
             <li className="flex items-start gap-3">
-              <Check aria-hidden="true" className="mt-1 h-5 w-5 shrink-0 text-primary" strokeWidth={1.8} />
-              <span>Continuously learning and improving</span>
+              <Check
+                aria-hidden="true"
+                className="mt-1 h-5 w-5 shrink-0 text-primary"
+                strokeWidth={1.8}
+              />
+              <span>
+                Lead generation, research, and business outreach
+              </span>
+            </li>
+
+            <li className="flex items-start gap-3">
+              <Check
+                aria-hidden="true"
+                className="mt-1 h-5 w-5 shrink-0 text-primary"
+                strokeWidth={1.8}
+              />
+              <span>
+                Detail-oriented, adaptable, and reliable communication
+              </span>
             </li>
           </ul>
         </Reveal>
