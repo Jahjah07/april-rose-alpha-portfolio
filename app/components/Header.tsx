@@ -47,8 +47,7 @@ export default function Header() {
     { id: "home", label: "Home", href: "/" },
     { id: "about", label: "About Me", href: "/about" },
     { id: "services", label: "Services", href: "/services" },
-    { id: "skills", label: "Skills", href: "/#tools-home" },
-    { id: "portfolio", label: "Portfolio", href: "/#portfolio" },
+    { id: "portfolio", label: "Portfolio", href: "/portfolio" },
     { id: "contact", label: "Contact", href: "/contact" },
   ];
 
